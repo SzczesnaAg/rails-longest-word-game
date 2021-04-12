@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class GamesController < ApplicationController
 
   # The new action will be used to display a new random grid and a form
@@ -35,7 +37,7 @@ class GamesController < ApplicationController
 
   # check if it is English word
   def english_word(attempt)
-    url = "https://wagon-dictionary.herokuapp.com/apple"
+    url = "https://wagon-dictionary.herokuapp.com/#{attempt}"
     # Jason "https://wagon-dictionary.herokuapp.com/#{attempt}"
     raw_response = open(url).read
     JSON.parse(raw_response, symbolize_names: true)
